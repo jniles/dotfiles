@@ -103,6 +103,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'https://github.com/Shutnik/jshint2.vim'
 
+" JSON Plug
+Plug 'elzr/vim-json'
+
 " Easy align
 Plug 'junegunn/vim-easy-align'
 
@@ -138,4 +141,4 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 let jshint2_save = 1
 
 " set the colorscheme to hybrid (downloaded with Plug)
-colorscheme hybrid
+colorscheme seoul256 
