@@ -1,7 +1,6 @@
 """""""""""""""""""""""""""""
 " jniles's .vimrc
 """""""""""""""""""""""""""""
-
 """""""""""""""""""""""""""""
 " Preamble
 """""""""""""""""""""""""""""
@@ -138,4 +137,4 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 let jshint2_save = 1
 
 " set the colorscheme to hybrid (downloaded with Plug)
-colorscheme hybrid
+colorscheme seoul256 
