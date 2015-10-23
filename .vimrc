@@ -102,6 +102,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'https://github.com/Shutnik/jshint2.vim'
 
+" JSON Plug
+Plug 'elzr/vim-json'
+
 " Easy align
 Plug 'junegunn/vim-easy-align'
 
