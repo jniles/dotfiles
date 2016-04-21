@@ -59,4 +59,5 @@ alias linbox="/usr/bin/wine ~/bin/winbox.exe"
 export PATH=$PATH:~/bin
 
 # make shell look pretty
+source ~/.git-prompt.sh
 source ~/.bash_aliases

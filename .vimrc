@@ -141,3 +141,6 @@ let jshint2_save = 1
 
 " set the colorscheme to hybrid (downloaded with Plug)
 colorscheme seoul256 
+
+" turn on spellcheck!
+set spell
