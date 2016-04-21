@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/jniles/wenge/client'
-let g:netrw_dirhist_2='/home/jniles/wenge/client/modules'
-let g:netrw_dirhist_3='/home/jniles/wenge/db'
-let g:netrw_dirhist_4='/home/jniles/wenge/bin'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/jniles/code/bhima-2.X/server/test/api'
+let g:netrw_dirhist_2='/home/jniles/code/wenge/test/helpers'
+let g:netrw_dirhist_3='/home/jniles/code/wenge/bin'
+let g:netrw_dirhist_4='/home/jniles/code/wenge/test/api/auth'
+let g:netrw_dirhist_5='/home/jniles/code/bhima-2.X/client/src/partials/billing_services/create'
+let g:netrw_dirhist_6='/home/jniles/code/bhima-2.X/client/test/e2e/billingServices'
+let g:netrw_dirhist_7='/home/jniles/code/bhima-2.X/server/controllers/finance/journal'

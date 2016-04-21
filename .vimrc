@@ -8,6 +8,11 @@
 " redraw only when we need to
 set lazyredraw
 
+" turn on spellcheck
+set spell
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd FileType gitcommit setlocal spell
+
 " turn on syntax highlighting
 syntax on
 
@@ -93,6 +98,7 @@ Plug 'kien/ctrlp.vim'
 
 " Syntax/Linting
 Plug 'scrooloose/syntastic'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Git Integration
 Plug 'tpope/vim-fugitive'
@@ -101,6 +107,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'https://github.com/Shutnik/jshint2.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'grvcoelho/vim-javascript-snippets'
+
+" Typescript Plugs
+Plug 'Quramy/tsuquyomi'
+
+" LESS support (syntax)
+Plug 'genoma/vim-less'
 
 " JSON Plug
 Plug 'elzr/vim-json'
@@ -114,6 +128,15 @@ Plug 'lokaltog/vim-distinguished'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
+
+" support for comments (gcc)
+Plug 'tpope/vim-commentary'
+
+" tern support in vim
+Plug 'ternjs/tern_for_vim'
+
+" asciidoc support
+Plug 'asciidoc/vim-asciidoc'
 
 call plug#end()
 
@@ -130,7 +153,7 @@ nmap ga <Plug>(EasyAlign)
 
 "Ctrl-P Ignores
 let g:ctrlp_custom_ignore = {
-      \'dir' : 'bower_components$\|dist$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
+      \'dir' : 'bower_components$\|dest$\|dist$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
 " link jshint2 runtime path
@@ -140,4 +163,7 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 let jshint2_save = 1
 
 " set the colorscheme to hybrid (downloaded with Plug)
-colorscheme seoul256 
+colorscheme seoul256
+
+" use eslint for javascript
+" let g:syntastic_javascript_checkers = ['eslint']

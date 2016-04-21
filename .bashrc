@@ -60,3 +60,11 @@ export PATH=$PATH:~/bin
 
 # make shell look pretty
 source ~/.bash_aliases
+
+# added by travis gem
+[ -f /home/jniles/.travis/travis.sh ] && source /home/jniles/.travis/travis.sh
+
+export NVM_DIR="/home/jniles/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export NODE_ENV="development"
