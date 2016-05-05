@@ -13,6 +13,9 @@ set spell
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 
+" autoremove whitespace -- *.md (markdown) is detected as modula2
+autocmd FileType javascript,yaml,html,modula2,css,less,sql,bash,sh autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 " turn on syntax highlighting
 syntax on
 
@@ -162,8 +165,9 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 " only lint after saving
 let jshint2_save = 1
 
-" set the colorscheme to hybrid (downloaded with Plug)
-colorscheme seoul256
+" set the colorscheme
+colorscheme gruvbox
+set background=dark
 
 " use eslint for javascript
 " let g:syntastic_javascript_checkers = ['eslint']
