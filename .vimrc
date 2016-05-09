@@ -156,7 +156,7 @@ nmap ga <Plug>(EasyAlign)
 
 "Ctrl-P Ignores
 let g:ctrlp_custom_ignore = {
-      \'dir' : 'bower_components$\|dest$\|dist$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
+      \'dir' : 'bower_components$\|dest$\|dist$\|vendor$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
 " link jshint2 runtime path
