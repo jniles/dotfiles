@@ -104,3 +104,6 @@ else \
   # @2 - Prompt when not in GIT repo
   echo " '$Yellow$PathShort$Color_Off'\$ "; \
 fi)'
+
+alias sup=sup-mail
+alias bfg="java -jar ~/bin/bfg-1.12.7.jar"
