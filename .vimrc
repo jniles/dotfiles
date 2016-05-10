@@ -17,6 +17,9 @@ filetype plugin indent on
 " ignore folders that will never be opened
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar.gz,*/node_modules/*,*/bin/*
 
+" autoremove whitespace -- *.md (markdown) is detected as modula2
+autocmd FileType javascript,html,modula2,css,less autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 """""""""""""""""""""""""""""
 " Editing Config
 """""""""""""""""""""""""""""
@@ -98,15 +101,17 @@ Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 
 " JavaScript Plugs
-Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'https://github.com/Shutnik/jshint2.vim'
 
 " JSON Plug
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 
 " Easy align
 Plug 'junegunn/vim-easy-align'
+
+" Polyglot Language Pack
+Plug 'sheerun/vim-polyglot'
 
 " More Colorschemes
 Plug 'junegunn/seoul256.vim'
@@ -130,7 +135,7 @@ nmap ga <Plug>(EasyAlign)
 
 "Ctrl-P Ignores
 let g:ctrlp_custom_ignore = {
-      \'dir' : 'bower_components$\|dist$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
+      \'dir' : 'bower_components$\|dist$\|dest$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
 " link jshint2 runtime path
@@ -139,8 +144,10 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 " only lint after saving
 let jshint2_save = 1
 
+" let g:syntastic_javascript_checkers = ['eslint']
+
 " set the colorscheme to hybrid (downloaded with Plug)
-colorscheme seoul256 
+colorscheme seoul256
 
 " turn on spellcheck!
 set spell
