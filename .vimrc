@@ -141,8 +141,16 @@ Plug 'ternjs/tern_for_vim'
 " asciidoc support
 Plug 'asciidoc/vim-asciidoc'
 
-call plug#end()
+" Repeatable Actions
+Plug 'tpope/vim-repeat'
 
+" Universal Text Linking
+Plug 'vim-scripts/utl.vim'
+
+" vim-orgmode
+Plug 'jceb/vim-orgmode'
+
+call plug#end()
 
 """"""""""""""""""""""""""
 " Plugin Configs
