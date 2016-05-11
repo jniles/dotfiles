@@ -25,6 +25,9 @@ filetype plugin indent on
 " ignore folders that will never be opened
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar.gz,*/node_modules/*,*/bin/*
 
+" autoremove whitespace -- *.md (markdown) is detected as modula2
+autocmd FileType javascript,html,modula2,css,less autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 """""""""""""""""""""""""""""
 " Editing Config
 """""""""""""""""""""""""""""
@@ -107,7 +110,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-fugitive'
 
 " JavaScript Plugs
-Plug 'pangloss/vim-javascript'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'https://github.com/Shutnik/jshint2.vim'
 Plug 'leafgarland/typescript-vim'
@@ -120,10 +122,13 @@ Plug 'Quramy/tsuquyomi'
 Plug 'genoma/vim-less'
 
 " JSON Plug
-Plug 'elzr/vim-json'
+" Plug 'elzr/vim-json'
 
 " Easy align
 Plug 'junegunn/vim-easy-align'
+
+" Polyglot Language Pack
+Plug 'sheerun/vim-polyglot'
 
 " More Colorschemes
 Plug 'junegunn/seoul256.vim'
