@@ -183,7 +183,9 @@ colorscheme gruvbox
 set background=dark
 
 " use eslint for javascript
-" let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
 
 " turn on spellcheck!
 set spell
