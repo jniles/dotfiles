@@ -152,8 +152,17 @@ Plug 'tpope/vim-repeat'
 " Universal Text Linking
 Plug 'vim-scripts/utl.vim'
 
+" You Complete Me
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 " vim-orgmode
 Plug 'jceb/vim-orgmode'
+
+" JSX Syntax Highlighting
+Plug 'chemzqm/vim-jsx-improve'
+
+" use local plugin for eslint
+" Plug 'mtscout6/syntastic-local-eslint.vim'
 
 call plug#end()
 
@@ -179,13 +188,18 @@ set runtimepath+=~/.vim/bundle/jshint2.vim/
 let jshint2_save = 1
 
 " set the colorscheme
-colorscheme gruvbox
+colorscheme seoul256
 set background=dark
 
 " use eslint for javascript
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
+" set 80 character color column highlight
+let &colorcolumn="80,".join(range(120,999),",")
 
 " turn on spellcheck!
 set spell
+
+" turn on the cursor line
+set cursorline
