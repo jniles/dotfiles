@@ -141,7 +141,7 @@ Plug 'w0ng/vim-hybrid'
 Plug 'tpope/vim-commentary'
 
 " tern support in vim
-Plug 'ternjs/tern_for_vim'
+" Plug 'ternjs/tern_for_vim'
 
 " asciidoc support
 Plug 'asciidoc/vim-asciidoc'
@@ -181,12 +181,6 @@ let g:ctrlp_custom_ignore = {
       \'dir' : 'bower_components$\|dest$\|dist$\|vendor$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
-" link jshint2 runtime path
-set runtimepath+=~/.vim/bundle/jshint2.vim/
-
-" only lint after saving
-let jshint2_save = 1
-
 " set the colorscheme
 colorscheme seoul256
 set background=dark
@@ -201,5 +195,5 @@ let &colorcolumn="80,".join(range(120,999),",")
 " turn on spellcheck!
 set spell
 
-" turn on the cursor line
+" make cursors easier to see
 set cursorline
