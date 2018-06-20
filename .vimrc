@@ -121,6 +121,9 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 " LESS support (syntax)
 Plug 'genoma/vim-less', { 'for': 'less' }
 
+" XO javascript linter
+Plug 'xojs/vim-xo'
+
 " JSON Plug
 " Plug 'elzr/vim-json'
 " vim-plug
@@ -141,9 +144,6 @@ Plug 'w0ng/vim-hybrid'
 
 " support for comments (gcc)
 Plug 'tpope/vim-commentary'
-
-" autocomplete
-Plug 'zxqfl/tabnine-vim'
 
 " Repeatable Actions
 Plug 'tpope/vim-repeat'
