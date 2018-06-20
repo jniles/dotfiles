@@ -14,7 +14,7 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 
 " autoremove whitespace -- *.md (markdown) is detected as modula2
-autocmd FileType javascript,yaml,html,modula2,css,less,sql,bash,sh autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType javascript,yaml,html,modula2,css,less,sql,bash,sh,handlebars autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " turn on syntax highlighting
 syntax on
@@ -87,6 +87,8 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+
 " wakatime
 Plug 'wakatime/vim-wakatime'
 
@@ -100,7 +102,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'scrooloose/nerdcommenter'
 
 " Ctrl-P Support
-Plug 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
 " Syntax/Linting
 Plug 'scrooloose/syntastic'
@@ -111,18 +113,18 @@ Plug 'tpope/vim-fugitive'
 
 " JavaScript Plugs
 Plug 'jelera/vim-javascript-syntax'
-Plug 'https://github.com/Shutnik/jshint2.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'grvcoelho/vim-javascript-snippets'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 
 " Typescript Plugs
-Plug 'Quramy/tsuquyomi'
+Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " LESS support (syntax)
-Plug 'genoma/vim-less'
+Plug 'genoma/vim-less', { 'for': 'less' }
 
 " JSON Plug
 " Plug 'elzr/vim-json'
+" vim-plug
+Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
 
 " Easy align
 Plug 'junegunn/vim-easy-align'
@@ -140,29 +142,14 @@ Plug 'w0ng/vim-hybrid'
 " support for comments (gcc)
 Plug 'tpope/vim-commentary'
 
-" tern support in vim
-" Plug 'ternjs/tern_for_vim'
-
-" asciidoc support
-Plug 'asciidoc/vim-asciidoc'
+" autocomplete
+Plug 'zxqfl/tabnine-vim'
 
 " Repeatable Actions
 Plug 'tpope/vim-repeat'
 
-" Universal Text Linking
-Plug 'vim-scripts/utl.vim'
-
-" You Complete Me
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-" vim-orgmode
-Plug 'jceb/vim-orgmode'
-
 " JSX Syntax Highlighting
 Plug 'chemzqm/vim-jsx-improve'
-
-" use local plugin for eslint
-" Plug 'mtscout6/syntastic-local-eslint.vim'
 
 call plug#end()
 
@@ -182,11 +169,12 @@ let g:ctrlp_custom_ignore = {
       \}
 
 " set the colorscheme
-colorscheme seoul256
+colorscheme hybrid
 set background=dark
 
 " use eslint for javascript
 let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['xo']
 let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
 
 " set 80 character color column highlight
@@ -194,6 +182,9 @@ let &colorcolumn="80,".join(range(120,999),",")
 
 " turn on spellcheck!
 set spell
+
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " make cursors easier to see
 set cursorline
