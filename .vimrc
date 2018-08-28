@@ -7,9 +7,12 @@
 
 " redraw only when we need to
 set lazyredraw
+set nocursorline
+set nocursorcolumn
 
 " turn on spellcheck
-set spell
+" set spell
+
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 
@@ -69,25 +72,16 @@ nmap <Leader><Leader> V
 
 
 """""""""""""""""""""""""""""
-" GUI-Specific Config
-"""""""""""""""""""""""""""""
-
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
-
-
-"""""""""""""""""""""""""""""
 " Plugin Definitions
 """""""""""""""""""""""""""""
 call plug#begin()
 
 " Sensible configuration
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
 
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'tpope/vim-surround', {'for': 'html'}
+
+Plug 'chrisbra/csv.vim', {'for': 'csv'}
 
 " wakatime
 Plug 'wakatime/vim-wakatime'
@@ -101,46 +95,28 @@ Plug 'easymotion/vim-easymotion'
 " comments
 Plug 'scrooloose/nerdcommenter'
 
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+" linting
+Plug 'w0rp/ale'
+
 " Ctrl-P Support
 Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
 " Syntax/Linting
-Plug 'scrooloose/syntastic'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Git Integration
 Plug 'tpope/vim-fugitive'
 
 " JavaScript Plugs
-Plug 'jelera/vim-javascript-syntax'
-Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
-
-" Typescript Plugs
-Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
-
-" LESS support (syntax)
-Plug 'genoma/vim-less', { 'for': 'less' }
-
-" XO javascript linter
-Plug 'xojs/vim-xo'
-
-" JSON Plug
-" Plug 'elzr/vim-json'
-" vim-plug
-Plug 'elixir-editors/vim-elixir', { 'for' : 'elixir' }
+Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 
 " Easy align
 Plug 'junegunn/vim-easy-align'
 
-" Polyglot Language Pack
-Plug 'sheerun/vim-polyglot'
-
-" More Colorschemes
-Plug 'junegunn/seoul256.vim'
-Plug 'lokaltog/vim-distinguished'
-Plug 'jonathanfilip/vim-lucius'
-Plug 'morhetz/gruvbox'
-Plug 'w0ng/vim-hybrid'
+" base-16 colorscheme
+Plug 'chriskempson/base16-vim'
 
 " support for comments (gcc)
 Plug 'tpope/vim-commentary'
@@ -149,7 +125,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 
 " JSX Syntax Highlighting
-Plug 'chemzqm/vim-jsx-improve'
+Plug 'chemzqm/vim-jsx-improve', { 'for': 'javascript' }
 
 call plug#end()
 
@@ -168,23 +144,44 @@ let g:ctrlp_custom_ignore = {
       \'dir' : 'bower_components$\|dest$\|dist$\|vendor$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
+<<<<<<< HEAD
 " set the colorscheme
 colorscheme hybrid
 set background=dark
+=======
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+>>>>>>> Modernize plugin architecture
 
-" use eslint for javascript
-let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_javascript_checkers = ['xo']
-let g:syntastic_javascript_eslint_exe='$(npm bin)/eslint'
+
+" configure ALE Linter
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\}
+
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
+" remap error navigation to ctrl k and ctrl c
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
+
+let g:airline#extensions#ale#enabled = 1
+
+let base16colorspace=256  " Access colors present in 256 colorspace
+" set the colorscheme
+colorscheme base16-ashes
 
 " set 80 character color column highlight
 let &colorcolumn="80,".join(range(120,999),",")
-
-" turn on spellcheck!
-set spell
-
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-
-" make cursors easier to see
-set cursorline
