@@ -185,7 +185,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 let g:airline#extensions#ale#enabled = 1
-let g:airline_theme = "hybrid"
+let g:vue_disable_pre_processors=1
 
 " set 80 character color column highlight
 let &colorcolumn="80,".join(range(120,999),",")
