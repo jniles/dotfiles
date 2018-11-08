@@ -16,6 +16,9 @@ set nocursorcolumn
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd FileType gitcommit setlocal spell
 
+" set up the *.vue filetype recognition
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
+
 " autoremove whitespace -- *.md (markdown) is detected as modula2
 autocmd FileType javascript,yaml,html,modula2,css,less,sql,bash,sh,handlebars autocmd BufWritePre <buffer> :%s/\s\+$//e
 
@@ -29,7 +32,7 @@ filetype plugin indent on
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar.gz,*/node_modules/*,*/bin/*
 
 " autoremove whitespace -- *.md (markdown) is detected as modula2
-autocmd FileType javascript,html,modula2,css,less autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType javascript,html,modula2,css,less,vue autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 """""""""""""""""""""""""""""
 " Editing Config
@@ -86,6 +89,8 @@ Plug 'chrisbra/csv.vim', {'for': 'csv'}
 " wakatime
 Plug 'wakatime/vim-wakatime'
 
+Plug 'posva/vim-vue', {'for': 'vue' }
+
 " airline
 Plug 'bling/vim-airline'
 
@@ -103,6 +108,8 @@ Plug 'w0rp/ale'
 " Ctrl-P Support
 Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
 
+Plug 'kristijanhusak/vim-hybrid-material'
+
 " Syntax/Linting
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -115,8 +122,6 @@ Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 " Easy align
 Plug 'junegunn/vim-easy-align'
 
-" base-16 colorscheme
-Plug 'chriskempson/base16-vim'
 
 " support for comments (gcc)
 Plug 'tpope/vim-commentary'
@@ -144,13 +149,15 @@ let g:ctrlp_custom_ignore = {
       \'dir' : 'bower_components$\|dest$\|dist$\|vendor$\|node_modules$\|bin$|\v[\/]\.(git|hg|svn)$',
       \}
 
-<<<<<<< HEAD
 " set the colorscheme
-colorscheme hybrid
+let g:enable_bold_font = 1
+let g:enable_italic_font = 1
+let g:hybrid_transparent_background = 1
+
 set background=dark
-=======
+colorscheme hybrid_material
+
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
->>>>>>> Modernize plugin architecture
 
 
 " configure ALE Linter
@@ -178,10 +185,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
 let g:airline#extensions#ale#enabled = 1
-
-let base16colorspace=256  " Access colors present in 256 colorspace
-" set the colorscheme
-colorscheme base16-ashes
+let g:airline_theme = "hybrid"
 
 " set 80 character color column highlight
 let &colorcolumn="80,".join(range(120,999),",")
