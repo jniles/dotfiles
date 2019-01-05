@@ -91,6 +91,8 @@ Plug 'wakatime/vim-wakatime'
 
 Plug 'posva/vim-vue', {'for': 'vue' }
 
+Plug 'junegunn/goyo.vim'
+
 " airline
 Plug 'bling/vim-airline'
 
@@ -106,7 +108,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'w0rp/ale'
 
 " Ctrl-P Support
-Plug 'kien/ctrlp.vim', { 'on': 'CtrlP' }
+Plug 'kien/ctrlp.vim'
 
 Plug 'kristijanhusak/vim-hybrid-material'
 
@@ -114,7 +116,7 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'ntpeters/vim-better-whitespace'
 
 " Git Integration
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 
 " JavaScript Plugs
 Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
@@ -122,6 +124,8 @@ Plug 'jelera/vim-javascript-syntax', {'for': 'javascript'}
 " Easy align
 Plug 'junegunn/vim-easy-align'
 
+" support handlebars
+Plug 'mustache/vim-mustache-handlebars'
 
 " support for comments (gcc)
 Plug 'tpope/vim-commentary'
@@ -172,6 +176,7 @@ let g:ale_fixers = {
 
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
 
 " remap error navigation to ctrl k and ctrl c
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -186,6 +191,3 @@ let g:ale_lint_on_enter = 0
 
 let g:airline#extensions#ale#enabled = 1
 let g:vue_disable_pre_processors=1
-
-" set 80 character color column highlight
-let &colorcolumn="80,".join(range(120,999),",")
