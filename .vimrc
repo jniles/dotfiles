@@ -57,6 +57,8 @@ set smartindent    " automatically indent based on file type
 " nnoremap ^ <nop>
 " nnoremap $ <nop>
 
+nnoremap , @@
+
 
 """""""""""""""""""""""""""""
 " Utilities
@@ -181,6 +183,7 @@ let g:ale_lint_on_text_changed = 'never'
 " remap error navigation to ctrl k and ctrl c
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 
 " Write this in your vimrc file
 let g:ale_lint_on_text_changed = 'never'
